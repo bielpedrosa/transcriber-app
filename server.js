@@ -8,9 +8,9 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware de segurança
+// Security middleware
 app.use(helmet({
-    contentSecurityPolicy: false, // Permitir inline scripts para desenvolvimento
+    contentSecurityPolicy: false, // Allow inline scripts for development
 }));
 app.use(compression());
 app.use(cors({
@@ -20,18 +20,18 @@ app.use(cors({
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static('public'));
 
-// Rate limiting para prevenir abuso
+// Rate limiting to prevent abuse
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 100, // Limite de 100 requisições por IP
-    message: 'Muitas requisições deste IP, tente novamente mais tarde.'
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit of 100 requests per IP
+    message: 'Too many requests from this IP, please try again later.'
 });
 app.use('/api/', limiter);
 
-// Endpoint para transcrição (proxy para Gemini API)
+// Transcription endpoint (proxy to Gemini API)
 app.post('/api/transcribe', async (req, res) => {
     try {
-        const { audioData, language = 'pt-BR' } = req.body;
+        const { audioData, language = 'en-US' } = req.body;
 
         if (!audioData) {
             return res.status(400).json({ error: 'Audio data is required' });
@@ -42,10 +42,10 @@ app.post('/api/transcribe', async (req, res) => {
             return res.status(500).json({ error: 'API key not configured' });
         }
 
-        // Prompts por idioma
+        // Language-specific prompts
         const prompts = {
-            'pt-BR': 'Você é um especialista em transcrição de áudio. Transcreva o seguinte áudio para português brasileiro. Formate o texto com parágrafos e pontuação adequados. Apenas retorne o texto transcrito, sem qualquer introdução ou comentário.',
             'en-US': 'You are an expert in audio transcription. Transcribe the following audio to English. Format the text with proper paragraphs and punctuation. Only return the transcribed text, without any introduction or comment.',
+            'pt-BR': 'Você é um especialista em transcrição de áudio. Transcreva o seguinte áudio para português brasileiro. Formate o texto com parágrafos e pontuação adequados. Apenas retorne o texto transcrito, sem qualquer introdução ou comentário.',
             'es-ES': 'Eres un experto en transcripción de audio. Transcribe el siguiente audio al español. Formatea el texto con párrafos y puntuación adecuados. Solo devuelve el texto transcrito, sin ninguna introducción o comentario.',
             'fr-FR': 'Vous êtes un expert en transcription audio. Transcrivez l\'audio suivant en français. Formatez le texte avec des paragraphes et une ponctuation appropriés. Ne retournez que le texte transcrit, sans introduction ni commentaire.',
             'de-DE': 'Sie sind ein Experte für Audiotranskription. Transkribieren Sie das folgende Audio auf Deutsch. Formatieren Sie den Text mit entsprechenden Absätzen und Zeichensetzung. Geben Sie nur den transkribierten Text zurück, ohne Einleitung oder Kommentar.'
@@ -56,7 +56,7 @@ app.post('/api/transcribe', async (req, res) => {
         const payload = {
             contents: [{
                 parts: [
-                    { text: prompts[language] || prompts['pt-BR'] },
+                    { text: prompts[language] || prompts['en-US'] },
                     { inlineData: { mimeType: 'audio/wav', data: audioData } }
                 ]
             }]
@@ -92,7 +92,7 @@ app.post('/api/transcribe', async (req, res) => {
     }
 });
 
-// Endpoint para exportação de documentos
+// Export endpoint
 app.post('/api/export', async (req, res) => {
     try {
         const { text, format } = req.body;
@@ -163,7 +163,7 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Rota principal - serve o HTML
+// Root route — serves HTML
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });

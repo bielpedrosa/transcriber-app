@@ -1,49 +1,49 @@
 ---
 name: Bug Report
-about: Reportar um bug ou problema
+about: Report a bug or problem
 title: '[BUG] '
 labels: bug
 assignees: ''
 ---
 
-## 🐛 Descrição do Bug
+## 🐛 Bug Description
 
-<!-- Descrição clara e concisa do bug -->
+<!-- Clear and concise description of the bug -->
 
-## 📋 Passos para Reproduzir
+## 📋 Steps to Reproduce
 
-1. Vá para '...'
-2. Clique em '...'
-3. Selecione '...'
-4. Veja o erro
+1. Go to '...'
+2. Click on '...'
+3. Select '...'
+4. See error
 
-## ✅ Comportamento Esperado
+## ✅ Expected Behavior
 
-<!-- O que você esperava que acontecesse -->
+<!-- What you expected to happen -->
 
-## ❌ Comportamento Atual
+## ❌ Actual Behavior
 
-<!-- O que realmente aconteceu -->
+<!-- What actually happened -->
 
 ## 📸 Screenshots
 
-<!-- Se aplicável, adicione screenshots -->
+<!-- Add screenshots if applicable -->
 
-## 🖥️ Ambiente
+## 🖥️ Environment
 
-- **SO**: [ex: macOS 14, Windows 11, Ubuntu 22.04]
-- **Navegador**: [ex: Chrome 120, Firefox 121, Safari 17]
-- **Node.js**: [ex: 18.17.0]
-- **Versão do App**: [ex: 2.0.0]
+- OS: [e.g., macOS 14, Windows 11, Ubuntu 22.04]
+- Browser: [e.g., Chrome 120, Firefox 121, Safari 17]
+- Node.js: [e.g., 18.17.0]
+- App Version: [e.g., 2.0.0]
 
-## 📝 Informações Adicionais
+## 📝 Additional Information
 
-<!-- Logs de erro, contexto adicional, etc -->
+<!-- Error logs, additional context, etc. -->
 
 ```
-Cole logs aqui se houver
+Paste logs here if available
 ```
 
-## ✨ Solução Possível (Opcional)
+## ✨ Possible Solution (Optional)
 
-<!-- Se você tem ideias de como corrigir -->
+<!-- If you have ideas on how to fix it -->

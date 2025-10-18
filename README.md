@@ -1,4 +1,4 @@
-# 🎤 Transcriber App - Transcrição de Áudio com IA
+# 🎤 Transcriber App - AI-Powered Audio Transcription
 
 <div align="center">
 
@@ -7,17 +7,17 @@
 ![Node](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-Aplicativo web moderno para transcrição de áudio usando Google Gemini API. Suporta múltiplos idiomas, cache inteligente, e exportação em vários formatos.
+Modern web app for audio transcription powered by Google Gemini API. Supports multiple languages, smart caching, and export to various formats.
 
-[Demonstração](#-demonstração) • [Funcionalidades](#-funcionalidades) • [Instalação](#-instalação-rápida) • [Contribuir](#-como-contribuir)
+[Demo](#-demo) • [Features](#-features) • [Quick Start](#-quick-start) • [Contributing](#-how-to-contribute)
 
 </div>
 
 ---
 
-## 🚀 Funcionalidades
+## 🚀 Features
 
-### ✨ Novas Funcionalidades (v2.0)
+### ✨ New in v2.0
 
 - **🔐 API Key Segura**: API key movida para backend (não exposta no frontend)
 - **💾 Cache Inteligente**: Sistema de cache usando IndexedDB para chunks já processados
@@ -36,47 +36,47 @@ Aplicativo web moderno para transcrição de áudio usando Google Gemini API. Su
 - Divisão automática em chunks de 9 minutos
 - Interface responsiva com modo escuro
 
-## 📦 Instalação Rápida
+## 📦 Quick Start
 
-### Pré-requisitos
+### Prerequisites
 
 - Node.js 16.x ou superior
 - npm ou yarn
 - Chave da API do Google Gemini ([Obter aqui](https://makersuite.google.com/app/apikey))
 
-### Passos
+### Steps
 
-1. **Clone o repositório**
+1. **Clone the repository**
 ```bash
-git clone https://github.com/seu-usuario/transcriber-app.git
+git clone https://github.com/bielpedrosa/transcriber-app.git
 cd transcriber-app
 ```
 
-2. **Instale as dependências**
+2. **Install dependencies**
 ```bash
 npm install
 ```
 
-3. **Configure as variáveis de ambiente**
+3. **Configure environment variables**
 ```bash
-# Copie o arquivo de exemplo
+# Copy the example file
 cp .env.example .env
 
-# Edite o .env e adicione sua API key
-# GEMINI_API_KEY=sua_chave_aqui
+# Edit .env and add your API key
+# GEMINI_API_KEY=your_api_key_here
 ```
 
-4. **Inicie o servidor**
+4. **Start the server**
 ```bash
 npm start
 ```
 
-5. **Acesse no navegador**
+5. **Open in your browser**
 ```
 http://localhost:3000
 ```
 
-🎉 Pronto! O aplicativo está rodando.
+🎉 Done! The app is up and running.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -196,36 +196,36 @@ Planejamos adicionar estas funcionalidades:
 - [ ] Autenticação de usuários
 - [ ] Temas customizáveis
 
-## 🤝 Como Contribuir
+## 🤝 How to Contribute
 
 Contribuições são muito bem-vindas! Aqui está como você pode ajudar:
 
-### Reportar Bugs
-1. Verifique se o bug já não foi reportado nas [Issues](https://github.com/seu-usuario/transcriber-app/issues)
+### Report Bugs
+1. Check if the bug is already reported in the [Issues](https://github.com/bielpedrosa/transcriber-app/issues)
 2. Crie uma nova issue com detalhes do bug
 3. Inclua: SO, versão do Node, passos para reproduzir
 
-### Sugerir Melhorias
+### Suggest Improvements
 1. Abra uma issue com a tag `enhancement`
 2. Descreva a funcionalidade desejada
 3. Explique o caso de uso
 
-### Enviar Pull Request
+### Submit a Pull Request
 1. Fork o projeto
 2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
 3. Commit suas mudanças (`git commit -m 'Add: amazing feature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-### Código de Conduta
+### Code of Conduct
 - Seja respeitoso e construtivo
 - Teste suas mudanças antes de enviar
 - Documente código novo
 - Siga o estilo de código existente
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 Isso significa que você pode:
 - ✅ Usar comercialmente
@@ -233,29 +233,29 @@ Isso significa que você pode:
 - ✅ Distribuir
 - ✅ Uso privado
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Gabriel Pedrosa**
 
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
+- GitHub: [@bielpedrosa](https://github.com/bielpedrosa)
 
-## 🙏 Agradecimentos
+## 🙏 Acknowledgments
 
-- [Google Gemini](https://deepmind.google/technologies/gemini/) pela API de IA
-- [Tailwind CSS](https://tailwindcss.com/) pelo framework CSS
-- Comunidade open source
+- [Google Gemini](https://deepmind.google/technologies/gemini/) for the AI API
+- [Tailwind CSS](https://tailwindcss.com/) for the CSS framework
+- Open source community
 
-## 📞 Suporte
+## 📞 Support
 
-Encontrou um problema? Tem uma pergunta?
+Found a problem? Have a question?
 
-- 🐛 [Reportar Bug](https://github.com/seu-usuario/transcriber-app/issues)
-- 💡 [Sugerir Feature](https://github.com/seu-usuario/transcriber-app/issues)
-- 📧 Email: seu-email@example.com
+- 🐛 [Report a Bug](https://github.com/bielpedrosa/transcriber-app/issues)
+- 💡 [Suggest a Feature](https://github.com/bielpedrosa/transcriber-app/issues)
+- 📧 Email: your-email@example.com
 
-## ⭐ Mostre seu Apoio
+## ⭐ Show Your Support
 
-Se este projeto te ajudou, considere dar uma ⭐ no repositório!
+If this project helped you, please consider giving it a ⭐ on GitHub!
 
 ---
 

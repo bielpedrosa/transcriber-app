@@ -63,7 +63,7 @@ Depois:
 
 7. Execute:
 ```bash
-git remote add origin https://github.com/SEU-USUARIO/transcriber-app.git
+git remote add origin https://github.com/bielpedrosa/transcriber-app.git
 git branch -M main
 git push -u origin main
 ```
@@ -129,10 +129,10 @@ Para hospedar documentação:
 
 Edite README.md:
 ```markdown
-![Stars](https://img.shields.io/github/stars/SEU-USUARIO/transcriber-app)
-![Forks](https://img.shields.io/github/forks/SEU-USUARIO/transcriber-app)
-![Issues](https://img.shields.io/github/issues/SEU-USUARIO/transcriber-app)
-![License](https://img.shields.io/github/license/SEU-USUARIO/transcriber-app)
+![Stars](https://img.shields.io/github/stars/bielpedrosa/transcriber-app)
+![Forks](https://img.shields.io/github/forks/bielpedrosa/transcriber-app)
+![Issues](https://img.shields.io/github/issues/bielpedrosa/transcriber-app)
+![License](https://img.shields.io/github/license/bielpedrosa/transcriber-app)
 ```
 
 ---
@@ -153,7 +153,7 @@ Edite README.md:
 
 Open source & free! 🚀
 
-https://github.com/SEU-USUARIO/transcriber-app
+https://github.com/bielpedrosa/transcriber-app
 
 #opensource #nodejs #ai #transcription #javascript
 ```

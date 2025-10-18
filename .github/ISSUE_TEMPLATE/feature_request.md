@@ -1,39 +1,39 @@
 ---
 name: Feature Request
-about: Sugerir uma nova funcionalidade
+about: Suggest a new feature
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
 ---
 
-## 💡 Descrição da Funcionalidade
+## 💡 Feature Description
 
-<!-- Descrição clara e concisa da funcionalidade desejada -->
+<!-- Clear and concise description of the desired feature -->
 
-## 🎯 Problema que Resolve
+## 🎯 Problem to Solve
 
-<!-- Que problema essa funcionalidade resolveria? -->
+<!-- What problem would this feature solve? -->
 
-## 💭 Solução Desejada
+## 💭 Desired Solution
 
-<!-- Como você gostaria que funcionasse? -->
+<!-- How would you like it to work? -->
 
-## 🔄 Alternativas Consideradas
+## 🔄 Alternatives Considered
 
-<!-- Outras soluções ou funcionalidades que você considerou -->
+<!-- Other solutions or features you've considered -->
 
-## 📊 Impacto
+## 📊 Impact
 
-- [ ] Interface do usuário
+- [ ] User Interface
 - [ ] Backend/API
 - [ ] Performance
-- [ ] Segurança
-- [ ] Documentação
+- [ ] Security
+- [ ] Documentation
 
-## 🎨 Mockups/Exemplos (Opcional)
+## 🎨 Mockups/Examples (Optional)
 
-<!-- Imagens, links, ou exemplos de implementação -->
+<!-- Images, links, or implementation examples -->
 
-## ✨ Informações Adicionais
+## ✨ Additional Information
 
-<!-- Qualquer contexto adicional ou observações -->
+<!-- Any additional context or notes -->

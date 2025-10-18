@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transcrição de Áudio - Avançado</title>
+    <title>Advanced Audio Transcription</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -52,21 +52,21 @@
                 <svg class="mx-auto h-12 w-12 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
                 </svg>
-                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-4">Transcrição de Áudio Avançada</h1>
-                <p class="text-gray-600 dark:text-gray-400 mt-2">Sistema completo com cache, compressão e múltiplos formatos de exportação</p>
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mt-4">Advanced Audio Transcription</h1>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">Full system with smart cache, compression, and multiple export formats</p>
             </div>
 
             <!-- Info Panel -->
             <div class="bg-blue-50 dark:bg-gray-700 p-4 rounded-lg mb-6 text-sm text-blue-800 dark:text-blue-200">
-                <p><strong class="font-semibold">✨ Novidades:</strong> Cache inteligente, processamento em background, suporte a múltiplos idiomas e exportação em TXT, DOCX e PDF!</p>
+                <p><strong class="font-semibold">✨ What's new:</strong> Smart cache, background processing, multi-language support, and export to TXT, DOCX, and PDF!</p>
             </div>
 
             <!-- Language Selector -->
             <div class="mb-4">
-                <label for="language" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Idioma da Transcrição</label>
+                <label for="language" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Transcription Language</label>
                 <select id="language" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-blue-500">
+                    <option value="en-US" selected>English (US)</option>
                     <option value="pt-BR">Português (Brasil)</option>
-                    <option value="en-US">English (US)</option>
                     <option value="es-ES">Español</option>
                     <option value="fr-FR">Français</option>
                     <option value="de-DE">Deutsch</option>
@@ -75,7 +75,7 @@
             
             <!-- File Input -->
             <div class="mb-4">
-                <label for="audioFile" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Arquivo de Áudio</label>
+                <label for="audioFile" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Audio File</label>
                 <input type="file" id="audioFile" accept="audio/*" class="w-full text-sm text-gray-500 dark:text-gray-400"/>
             </div>
 
@@ -83,14 +83,14 @@
             <div class="mb-4">
                 <label class="flex items-center space-x-2 cursor-pointer">
                     <input type="checkbox" id="compressAudio" checked class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
-                    <span class="text-sm text-gray-700 dark:text-gray-300">Comprimir áudio antes do envio (recomendado)</span>
+                    <span class="text-sm text-gray-700 dark:text-gray-300">Compress audio before upload (recommended)</span>
                 </label>
             </div>
 
             <!-- Transcribe Button -->
             <div class="mb-6">
                 <button id="transcribeBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
-                    <span id="btn-text">Transcrever Áudio</span>
+                    <span id="btn-text">Transcribe Audio</span>
                     <div id="loader" class="loader hidden ml-3"></div>
                 </button>
             </div>
@@ -98,8 +98,8 @@
             <!-- Progress Bar -->
             <div id="progressContainer" class="mb-4 hidden">
                 <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    <span id="progressText">Processando...</span>
-                    <span id="timeEstimate">Estimando tempo...</span>
+                    <span id="progressText">Processing...</span>
+                    <span id="timeEstimate">Estimating time...</span>
                 </div>
                 <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
                     <div id="progressBar" class="progress-bar bg-blue-600 h-3 rounded-full" style="width: 0%"></div>
@@ -111,37 +111,37 @@
             </div>
             
             <!-- Status -->
-            <div id="status" class="mb-4 text-center text-sm font-medium text-gray-500 dark:text-gray-400 h-5">Selecione um arquivo para começar</div>
+            <div id="status" class="mb-4 text-center text-sm font-medium text-gray-500 dark:text-gray-400 h-5">Select a file to get started</div>
 
             <!-- Cache Info -->
             <div id="cacheInfo" class="mb-4 text-center text-xs text-gray-400 dark:text-gray-500">
-                <span id="cacheStatus">Cache: 0 chunks salvos</span>
-                <button id="clearCacheBtn" class="ml-3 text-red-500 hover:text-red-600">Limpar Cache</button>
+                <span id="cacheStatus">Cache: 0 chunks saved</span>
+                <button id="clearCacheBtn" class="ml-3 text-red-500 hover:text-red-600">Clear Cache</button>
             </div>
 
             <!-- Transcription Area -->
             <div class="relative">
-                <textarea id="transcription" rows="12" class="w-full p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Sua transcrição aparecerá aqui..."></textarea>
+                <textarea id="transcription" rows="12" class="w-full p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Your transcription will appear here..."></textarea>
                 
                 <!-- Action Buttons -->
                 <div class="absolute top-2 right-2 flex space-x-2">
                     <button id="copyBtn" class="bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-600 dark:text-gray-300 font-semibold py-1 px-3 rounded-md text-sm">
-                        📋 Copiar
+                        📋 Copy
                     </button>
                 </div>
-                <div id="copy-feedback" class="absolute top-10 right-2 bg-green-500 text-white text-xs font-bold py-1 px-2 rounded-md opacity-0 transition-opacity duration-300">Copiado!</div>
+                <div id="copy-feedback" class="absolute top-10 right-2 bg-green-500 text-white text-xs font-bold py-1 px-2 rounded-md opacity-0 transition-opacity duration-300">Copied!</div>
             </div>
 
             <!-- Export Buttons -->
             <div id="exportButtons" class="mt-4 grid grid-cols-3 gap-3 hidden">
                 <button class="export-btn bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition" data-format="txt">
-                    📄 Exportar TXT
+                    📄 Export TXT
                 </button>
                 <button class="export-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition" data-format="docx">
-                    📘 Exportar DOCX
+                    📘 Export DOCX
                 </button>
                 <button class="export-btn bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition" data-format="pdf">
-                    📕 Exportar PDF
+                    📕 Export PDF
                 </button>
             </div>
             
@@ -151,7 +151,7 @@
 
         <!-- Footer -->
         <footer class="text-center mt-6 text-sm text-gray-500 dark:text-gray-400">
-            <p>🚀 Versão 2.0 - Com cache, compressão e exportação avançada</p>
+            <p>🚀 Version 2.0 — Smart cache, compression, and advanced export</p>
         </footer>
     </div>
 

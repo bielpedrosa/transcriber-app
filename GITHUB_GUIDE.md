@@ -76,7 +76,7 @@ git commit -m "Add: initial commit - Transcriber App v2.0 with advanced features
 
 ```bash
 # Substitua SEU-USUARIO pelo seu username do GitHub
-git remote add origin https://github.com/SEU-USUARIO/transcriber-app.git
+git remote add origin https://github.com/bielpedrosa/transcriber-app.git
 
 # Renomear branch principal para main (se necessário)
 git branch -M main
@@ -137,9 +137,9 @@ Edite o README.md e substitua:
 ```
 Por:
 ```markdown
-![Version](https://img.shields.io/github/package-json/v/SEU-USUARIO/transcriber-app)
-![Stars](https://img.shields.io/github/stars/SEU-USUARIO/transcriber-app)
-![License](https://img.shields.io/github/license/SEU-USUARIO/transcriber-app)
+![Version](https://img.shields.io/github/package-json/v/bielpedrosa/transcriber-app)
+![Stars](https://img.shields.io/github/stars/bielpedrosa/transcriber-app)
+![License](https://img.shields.io/github/license/bielpedrosa/transcriber-app)
 ```
 
 ## 📢 Promovendo o Projeto
@@ -191,7 +191,7 @@ git push origin main
 ### Erro: "remote origin already exists"
 ```bash
 git remote remove origin
-git remote add origin https://github.com/SEU-USUARIO/transcriber-app.git
+git remote add origin https://github.com/bielpedrosa/transcriber-app.git
 ```
 
 ### Erro: "failed to push some refs"
@@ -238,10 +238,10 @@ Seu projeto está no GitHub e pronto para receber contribuições!
 
 **Link do seu repositório:**
 ```
-https://github.com/SEU-USUARIO/transcriber-app
+https://github.com/bielpedrosa/transcriber-app
 ```
 
 **Comando para clonar:**
 ```bash
-git clone https://github.com/SEU-USUARIO/transcriber-app.git
+git clone https://github.com/bielpedrosa/transcriber-app.git
 ```

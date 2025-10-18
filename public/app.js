@@ -1,4 +1,4 @@
-// Sistema de Transcrição Avançado
+// Advanced Transcription System
 class TranscriptionApp {
     constructor() {
         this.API_BASE = window.location.origin;
@@ -6,8 +6,8 @@ class TranscriptionApp {
         this.worker = null;
         this.audioContext = null;
         
-        // Configurações
-        this.CHUNK_DURATION_SECONDS = 540; // 9 minutos
+    // Settings
+    this.CHUNK_DURATION_SECONDS = 540; // 9 minutes
         this.MAX_FILE_SIZE_MB = 500;
         
         // Estado
@@ -16,7 +16,7 @@ class TranscriptionApp {
         this.processedChunks = 0;
         this.totalChunks = 0;
         
-        // Elementos DOM
+    // DOM elements
         this.initElements();
         this.initEventListeners();
         this.initCache();
@@ -73,7 +73,7 @@ class TranscriptionApp {
 
     async updateCacheInfo() {
         const size = await this.cache.getCacheSize();
-        this.elements.cacheStatus.textContent = `Cache: ${size} chunks salvos`;
+    this.elements.cacheStatus.textContent = `Cache: ${size} chunks saved`;
     }
 
     handleFileSelect(event) {
@@ -84,26 +84,26 @@ class TranscriptionApp {
         this.elements.exportButtons.classList.add('hidden');
 
         if (this.selectedFile) {
-            // Validação de tamanho
+            // Size validation
             if (this.selectedFile.size > this.MAX_FILE_SIZE_MB * 1024 * 1024) {
-                this.elements.error.textContent = `Arquivo muito grande (${(this.selectedFile.size / (1024*1024)).toFixed(1)} MB). Limite: ${this.MAX_FILE_SIZE_MB} MB.`;
-                this.elements.status.textContent = 'Por favor, selecione um arquivo menor.';
+                this.elements.error.textContent = `File too large (${(this.selectedFile.size / (1024*1024)).toFixed(1)} MB). Limit: ${this.MAX_FILE_SIZE_MB} MB.`;
+                this.elements.status.textContent = 'Please select a smaller file.';
                 this.elements.audioFile.value = '';
                 this.selectedFile = null;
                 return;
             }
 
             const sizeMB = (this.selectedFile.size / (1024 * 1024)).toFixed(2);
-            this.elements.status.textContent = `Arquivo selecionado: ${this.selectedFile.name} (${sizeMB} MB)`;
+            this.elements.status.textContent = `Selected file: ${this.selectedFile.name} (${sizeMB} MB)`;
             this.elements.transcribeBtn.disabled = false;
         } else {
-            this.elements.status.textContent = 'Selecione um arquivo para começar';
+            this.elements.status.textContent = 'Select a file to get started';
         }
     }
 
     async handleTranscription() {
         if (!this.selectedFile) {
-            this.elements.error.textContent = 'Por favor, selecione um arquivo de áudio primeiro.';
+            this.elements.error.textContent = 'Please select an audio file first.';
             return;
         }
 
@@ -115,7 +115,7 @@ class TranscriptionApp {
         this.processedChunks = 0;
 
         try {
-            // Inicializar AudioContext
+            // Initialize AudioContext
             if (!this.audioContext) {
                 this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
             }
@@ -124,29 +124,29 @@ class TranscriptionApp {
                 await this.audioContext.resume();
             }
 
-            // Carregar e decodificar áudio
-            this.updateProgress(5, 'Carregando arquivo...');
+            // Load and decode audio
+            this.updateProgress(5, 'Loading file...');
             const arrayBuffer = await this.selectedFile.arrayBuffer();
 
-            this.updateProgress(10, 'Decodificando áudio...');
+            this.updateProgress(10, 'Decoding audio...');
             let audioBuffer;
             try {
                 audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
             } catch (decodeError) {
-                throw new Error('Falha ao processar o arquivo de áudio. Tente converter para MP3 ou WAV.');
+                throw new Error('Failed to process the audio file. Try converting to MP3 or WAV.');
             }
 
-            // Calcular chunks
+            // Calculate chunks
             this.totalChunks = Math.ceil(audioBuffer.duration / this.CHUNK_DURATION_SECONDS);
-            this.updateProgress(15, 'Preparando processamento...');
+            this.updateProgress(15, 'Preparing processing...');
 
             const language = this.elements.language.value;
             const shouldCompress = this.elements.compressAudio.checked;
 
-            // Processar cada chunk
+            // Process each chunk
             for (let i = 0; i < this.totalChunks; i++) {
                 const progressBase = 15 + ((i / this.totalChunks) * 80);
-                this.updateProgress(progressBase, `Processando parte ${i + 1} de ${this.totalChunks}...`);
+                this.updateProgress(progressBase, `Processing part ${i + 1} of ${this.totalChunks}...`);
                 this.elements.chunksInfo.textContent = `${i}/${this.totalChunks} chunks`;
 
                 const chunkBuffer = this.sliceAudioBuffer(
@@ -161,18 +161,18 @@ class TranscriptionApp {
                 const base64Audio = await this.blobToBase64(wavBlob);
                 const audioData = base64Audio.split(',')[1];
 
-                // Verificar cache
+                // Check cache
                 const cachedTranscription = await this.cache.getChunk(audioData, i);
                 let transcriptionPart;
 
                 if (cachedTranscription) {
-                    console.log(`✓ Chunk ${i} recuperado do cache`);
+                    console.log(`✓ Chunk ${i} restored from cache`);
                     transcriptionPart = cachedTranscription;
                 } else {
-                    // Transcrever via API
+                    // Transcribe via API
                     transcriptionPart = await this.transcribeChunk(audioData, language);
                     
-                    // Salvar no cache
+                    // Save to cache
                     await this.cache.saveChunk('file-hash', i, audioData, transcriptionPart);
                     await this.updateCacheInfo();
                 }
@@ -185,14 +185,14 @@ class TranscriptionApp {
                 this.updateTimeEstimate();
             }
 
-            this.updateProgress(100, 'Transcrição concluída! 🎉');
+            this.updateProgress(100, 'Transcription complete! 🎉');
             this.elements.chunksInfo.textContent = `${this.totalChunks}/${this.totalChunks} chunks`;
             this.elements.exportButtons.classList.remove('hidden');
 
         } catch (err) {
             console.error('Transcription error:', err);
-            this.elements.error.textContent = `Erro: ${err.message}`;
-            this.elements.status.textContent = 'Ocorreu um erro.';
+            this.elements.error.textContent = `Error: ${err.message}`;
+            this.elements.status.textContent = 'An error occurred.';
         } finally {
             this.setLoadingState(false);
             setTimeout(() => {
@@ -215,10 +215,10 @@ class TranscriptionApp {
 
                 if (response.status === 429 || response.status === 503) {
                     if (attempt === maxRetries) {
-                        throw new Error('Servidor sobrecarregado. Tente novamente mais tarde.');
+                        throw new Error('Server overloaded. Please try again later.');
                     }
                     console.warn(`Retrying... (${attempt}/${maxRetries})`);
-                    this.elements.status.textContent = `Servidor ocupado. Tentando novamente (${attempt}/${maxRetries})...`;
+                    this.elements.status.textContent = `Server busy. Retrying (${attempt}/${maxRetries})...`;
                     await new Promise(resolve => setTimeout(resolve, delay));
                     delay *= 2;
                     continue;
@@ -226,7 +226,7 @@ class TranscriptionApp {
 
                 if (!response.ok) {
                     const error = await response.json();
-                    throw new Error(error.error || 'Erro na API');
+                    throw new Error(error.error || 'API error');
                 }
 
                 const result = await response.json();
@@ -244,7 +244,7 @@ class TranscriptionApp {
         const text = this.elements.transcription.value;
         
         if (!text) {
-            alert('Não há transcrição para exportar!');
+            alert('There is no transcription to export!');
             return;
         }
 
@@ -256,7 +256,7 @@ class TranscriptionApp {
             });
 
             if (!response.ok) {
-                throw new Error('Erro ao exportar arquivo');
+                throw new Error('Failed to export file');
             }
 
             const blob = await response.blob();
@@ -269,11 +269,11 @@ class TranscriptionApp {
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
 
-            this.showNotification(`✓ Arquivo ${format.toUpperCase()} exportado com sucesso!`);
+            this.showNotification(`✓ ${format.toUpperCase()} file exported successfully!`);
 
         } catch (error) {
             console.error('Export error:', error);
-            alert(`Erro ao exportar: ${error.message}`);
+            alert(`Export error: ${error.message}`);
         }
     }
 
@@ -293,7 +293,7 @@ class TranscriptionApp {
         const minutes = Math.floor(remaining / 60000);
         const seconds = Math.floor((remaining % 60000) / 1000);
 
-        this.elements.timeEstimate.textContent = `Tempo estimado: ${minutes}m ${seconds}s`;
+    this.elements.timeEstimate.textContent = `Estimated time: ${minutes}m ${seconds}s`;
     }
 
     sliceAudioBuffer(audioBuffer, startSeconds, endSeconds) {
@@ -401,21 +401,21 @@ class TranscriptionApp {
     }
 
     async clearCache() {
-        if (confirm('Tem certeza que deseja limpar todo o cache? Isso pode aumentar o tempo de processamento futuro.')) {
+        if (confirm('Are you sure you want to clear all cache? This may increase future processing time.')) {
             await this.cache.clearAllCache();
             await this.updateCacheInfo();
-            alert('Cache limpo com sucesso!');
+            alert('Cache cleared successfully!');
         }
     }
 
     setLoadingState(isLoading) {
         this.elements.transcribeBtn.disabled = isLoading;
         if (isLoading) {
-            this.elements.btnText.textContent = 'Transcrevendo...';
+            this.elements.btnText.textContent = 'Transcribing...';
             this.elements.loader.classList.remove('hidden');
             this.elements.audioFile.disabled = true;
         } else {
-            this.elements.btnText.textContent = 'Transcrever Áudio';
+            this.elements.btnText.textContent = 'Transcribe Audio';
             this.elements.loader.classList.add('hidden');
             this.elements.audioFile.disabled = false;
         }

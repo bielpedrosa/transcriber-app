@@ -1,56 +1,56 @@
 # Pull Request
 
-## 📝 Descrição
+## 📝 Description
 
-<!-- Descreva suas mudanças em detalhes -->
+<!-- Describe your changes in detail -->
 
-## 🔗 Issue Relacionada
+## 🔗 Related Issue
 
-<!-- Se houver uma issue relacionada -->
+<!-- If there is a related issue -->
 Fixes #(issue_number)
 
-## 🎯 Tipo de Mudança
+## 🎯 Type of Change
 
-Marque com `x` as opções relevantes:
+Mark with `x` all that apply:
 
-- [ ] 🐛 Bug fix (mudança que corrige um problema)
-- [ ] ✨ Nova feature (mudança que adiciona funcionalidade)
-- [ ] 💥 Breaking change (fix ou feature que causa mudança em funcionalidade existente)
-- [ ] 📚 Documentação (mudanças apenas na documentação)
-- [ ] 🎨 Estilo (formatação, espaços em branco, etc)
-- [ ] ♻️ Refatoração (mudança de código sem alterar funcionalidade)
-- [ ] ⚡ Performance (melhoria de performance)
-- [ ] ✅ Testes (adição ou correção de testes)
+- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ New feature (non-breaking change which adds functionality)
+- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to change)
+- [ ] 📚 Documentation (updates to docs only)
+- [ ] 🎨 Style (formatting, missing semi-colons, etc)
+- [ ] ♻️ Refactor (code change that neither fixes a bug nor adds a feature)
+- [ ] ⚡ Performance (code change that improves performance)
+- [ ] ✅ Tests (adding or updating tests)
 
-## 🧪 Como Foi Testado?
+## 🧪 How Has This Been Tested?
 
-<!-- Descreva os testes que você executou -->
+<!-- Describe the tests that you ran to verify your changes -->
 
-- [ ] Testei localmente
-- [ ] Testei em diferentes navegadores
-- [ ] Testei em diferentes SOs
-- [ ] Adicionei testes automatizados
+- [ ] Tested locally
+- [ ] Tested across different browsers
+- [ ] Tested across different OSes
+- [ ] Added automated tests
 
-**Ambiente de Teste:**
-- SO: 
-- Navegador: 
+**Test Environment:**
+- OS: 
+- Browser: 
 - Node.js: 
 
-## 📸 Screenshots (se aplicável)
+## 📸 Screenshots (if applicable)
 
-<!-- Adicione screenshots se houver mudanças visuais -->
+<!-- Add screenshots if there are UI changes -->
 
 ## ✅ Checklist
 
-- [ ] Meu código segue o guia de estilo do projeto
-- [ ] Revisei meu próprio código
-- [ ] Comentei código complexo
-- [ ] Atualizei a documentação
-- [ ] Minhas mudanças não geram novos warnings
-- [ ] Adicionei testes que provam que meu fix funciona ou que minha feature funciona
-- [ ] Testes novos e existentes passam localmente
-- [ ] Mudanças dependentes foram mergeadas e publicadas
+- [ ] My code follows the project style guidelines
+- [ ] I have performed a self-review of my own code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have updated the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally
+- [ ] Any dependent changes have been merged and published
 
-## 💬 Comentários Adicionais
+## 💬 Additional Comments
 
-<!-- Qualquer informação adicional relevante -->
+<!-- Any additional information relevant to this PR -->
