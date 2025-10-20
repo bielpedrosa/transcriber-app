@@ -97,19 +97,35 @@ http://localhost:3000
 - **IndexedDB**: Cache local
 - **Web Workers**: Processamento em background
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 transcriber_app/
-├── server.js                 # Servidor Express
-├── package.json             # Dependências
-├── .env                     # Variáveis de ambiente
-├── public/
-│   ├── index.html          # Interface principal
-│   ├── app.js              # Lógica principal
-│   ├── cache.js            # Sistema de cache
-│   └── audio-worker.js     # Web Worker para processamento
-└── README.md               # Este arquivo
+├── server.js                # Express backend server
+├── package.json            # Dependencies
+├── .env                    # Environment variables (not in repo)
+├── .env.example            # Environment template
+├── .gitignore              # Git ignore rules
+├── LICENSE                 # MIT License
+├── README.md               # Main documentation
+├── CONTRIBUTING.md         # Contribution guidelines
+├── .github/                # GitHub templates
+│   ├── ISSUE_TEMPLATE/
+│   └── PULL_REQUEST_TEMPLATE.md
+├── docs/                   # Additional documentation
+│   ├── README.md
+│   ├── DEMO.md            # Interface demo
+│   ├── GUIA_RAPIDO.md     # Quick guide (PT)
+│   ├── MELHORIAS.md       # Improvements (PT)
+│   └── ...
+├── public/                 # Frontend files
+│   ├── index.html         # Main UI
+│   ├── app.js             # Main logic
+│   ├── cache.js           # Cache system (IndexedDB)
+│   └── audio-worker.js    # Web Worker
+└── scripts/                # Utility scripts
+    ├── start.sh           # Dev server starter
+    └── prepare-github.sh  # GitHub prep script
 ```
 
 ## 🔧 Como Usar
